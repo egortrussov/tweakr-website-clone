@@ -1,0 +1,762 @@
+@import 'config';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: $text-color;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  padding: 2rem 1.1rem;
+  margin: auto;
+  max-width: 1075px;
+}
+.btn {
+  color: $text-color;
+  padding: .7rem 3.2rem;
+  border: 0;
+  border-radius: 2.4rem;
+  font-weight: bold;
+  background: #fff;
+  margin: .4rem 0;
+  font-size: 1rem;
+  box-shadow: 2px 2px 5px rgba($color: $text-color, $alpha: .2);
+  transition: all .2s;
+
+  &.btn-primary {
+    background: lighten($primary-color, 1);
+    color: #fff;
+    text-transform: capitalize;
+  }
+  &:hover {
+    box-shadow: 5px 5px 5px rgba($color: $text-color, $alpha: .2);
+  }
+}
+
+header {
+
+  &#about-header {
+    height: auto;
+  }
+
+  .menu {
+    @include desktop {
+      display: none;
+    }
+
+    position: fixed;
+    z-index: 15;
+    background: #fff;
+    box-shadow: 0px 5px 15px rgba($color: $text-color, $alpha: .15);
+    width: 100%;
+    padding: 2rem 0;
+    top: -50%;
+    text-align: center;
+    transition: all .7s;
+
+    &.active {
+      top: 0%;
+    }
+
+    .logo {
+      display: block;
+      position: relative;
+      width: 90%;
+      max-width: 250px;
+      margin: auto;
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .menu-close {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .menu-link {
+      margin: 0 1rem;
+      font-size: 1.2rem;
+      color: $text-color
+    }
+  }
+
+  @include desktop {
+    height: 100vh;
+
+    .header-main {
+      display: flex !important;
+      justify-content: space-between;
+      
+      .drag-box {
+        width: 440px !important;
+        max-width: 440px;
+        min-width: 440px;
+        height: 600px;
+      }
+    }
+  }
+
+  padding-bottom: 2rem;
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      width: 140px;
+    }
+    .nav-links {
+      @include desktop {
+        display: block;
+      }
+
+      display: none;
+
+      a {
+        font-size: 1rem;
+        font-weight: bold;
+        color: $text-color;
+        margin-left: 1.5rem;
+        transition: all .2s;
+
+        &:hover {
+          color: $primary-color; 
+        }
+      }
+    }
+    .menu-btn {
+      @include desktop {
+        display: none;
+      }
+
+      display: block;
+      font-size: 1.5rem;
+    }
+  }
+
+  .header-content {
+    @include desktop {
+      text-align: left;
+      width: 450px;
+      margin-right: auto;
+      margin-left: 0;
+
+      h1 {
+        margin-left: 0 !important;
+        margin-right: auto;
+      }
+    }
+
+    text-align: center;
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.3rem;
+      margin-top: .9rem;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    p {
+      font-weight: 500;
+      font-size: 1.3rem;
+      margin-top: 1.7rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.5;
+    }
+  }
+
+  .drag-box {
+    @include desktop {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    position: relative;
+    width: 90%;
+    border-radius: 1.5rem;
+    margin: auto;
+    margin-top: 2.3rem;
+    max-width: 470px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 420px;
+    box-shadow: 10px 10px 20px rgba($color: $text-color, $alpha: .2);
+    transition: all .2s;
+    background: #fff;
+    cursor: pointer;
+    text-align: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background: url(https://www.tweakr.io/assets/img/illustrations/ci-shapes/key-0.svg) no-repeat 100%;
+      height: 100%;
+      width: 70%;
+      top: -20%;
+      left: -35%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background: url(https://www.tweakr.io/assets/img/illustrations/ci-shapes/sec-1.svg) no-repeat 100%;
+      height: 50%;
+      width: 70%;
+      top: 50%;
+      left: 50%;
+    }
+
+    &:hover {
+      box-shadow: 15px 15px 30px rgba($color: $primary-color, $alpha: .2);
+    }
+
+    .drag-icon {
+      margin-bottom: 1.3rem;
+      font-size: 30px;
+      width: 62px;
+      height: 62px;
+      background-color: $primary-color;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+  }
+}
+
+section {
+  padding: 1rem 0;
+
+  .section-heading {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 4rem auto;
+    max-width: 600px;
+  }
+  .section-text {
+    @include desktop {
+      max-width: 75%;
+    }
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: auto;
+    margin-bottom: 4rem;
+    line-height: 1.5;
+    max-width: 90%;
+  }
+
+  &#feedback {
+    @include desktop {
+      padding-bottom: 4rem;
+    }
+
+    text-align: center;
+  }
+
+  .feedback-cards {
+    margin: 2rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+
+    .feedback-card {
+      width: 300px;
+      margin: 1rem;
+      
+      &-top {
+        width: 90px;
+        height: 90px;
+        margin: 2rem auto;
+      }
+      h2 {
+        margin: .5rem 0;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &#drop-file {
+
+    .drop-card {
+      margin: 3rem 0;
+
+      @include desktop {
+        display: flex;
+        margin: 5rem 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+
+        &.is-reversed {
+          flex-direction: row;
+          
+          .drop-card-text {
+            margin-left: 2rem;
+          }
+        }
+
+        .drop-img {
+          width: 500px !important;
+
+          &#bg1::after {
+            height: 60%;
+            width: 100%;
+            top: 45%;
+            left: 0% !important;
+          }
+        }
+      }
+
+      width: 100%;
+
+      .drop-img {
+        width: 100%;
+        position: relative;
+        max-width: 600px;
+        margin: auto;
+        
+  
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          
+        }
+        &#bg1::after {
+          background: url(https://www.tweakr.io/assets/img/illustrations/ci-shapes/sec-1.svg) no-repeat 100%;
+          height: 60%;
+          width: 100%;
+          top: 45%;
+          left: -20%;
+        }
+        &#bg2::after {
+          background: url(https://www.tweakr.io/assets/img/illustrations/ci-shapes/key-3.svg) no-repeat 100% center;
+          width: 100%;
+          left: -20%;
+          height: 110%;
+          top: 0%;
+        }
+        &#bg3 {
+          transform: scale(1);
+        }
+        &#bg3::after {
+          background: url(https://www.tweakr.io/assets/img/illustrations/ci-shapes/key-4.svg) no-repeat 100%;
+          width: 100%;
+          left: -40%;
+          height: 110%;
+          top: 0%;
+        }
+  
+        img {
+          width: 100%;
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    .section-subheading {
+      @include desktop {
+        text-align: left;
+      }
+
+      text-align: center;
+      margin: 2.6rem 0 1rem 0;
+      font-size: 2.1rem;
+    }
+    .section-subtext {
+      font-size: 1.1rem;
+      margin: 1.8rem auto;
+      display: block;
+      width: 100%;
+      max-width: 600px;
+    }
+  }
+
+  &#essentials {
+    
+    .section-text {
+      
+      a, a:visited {
+        color: linghen($primary-color, 10%) !important;
+      }
+    }
+
+    .essentials-wrapper {
+      @include desktop {
+        display: flex;
+      }
+
+      .essentials-images {
+        @include desktop {
+          margin: 0;
+          width: auto;
+        }
+
+        width: 100%;
+        height: auto;
+
+        .ess-img {
+          @include desktop {
+            margin: 0;
+          }
+          position: relative;
+          width: 100%;
+          max-width: 600px;
+          margin: auto;
+          display: none;
+          height: 380px;
+
+          &.active {
+            display: block;
+          }
+        }
+      }
+
+      .essentials-cards {
+        @include desktop {
+          margin-top: 0;
+          margin-right: 0;
+          margin-left: auto;
+        }
+
+        margin-top: 2rem;
+        
+        .essentials-card {
+          @include desktop {
+            width: 490px;
+          }
+          display: flex;
+          width: 100%;
+          max-width: 370px;
+          align-items: center;
+          padding: 2rem 1.6rem;
+          border-radius: .8rem;
+          box-shadow: 5px 5px 25px rgba($color: $text-color, $alpha: .15);
+          margin: 1.3rem auto;
+          margin-top: 0;
+          transition: all .2s;
+          margin-right: auto;
+          margin-left: auto;
+          cursor: pointer;
+
+          &.active, &:hover {
+            @include desktop {
+              width: 500px;
+              margin-left: auto;
+            }
+            border-left: 10px solid $primary-color; 
+            width: 105%;
+          }
+
+          &-img {
+            width: 50px;
+
+            img {
+              width: 100%;
+            }
+          }
+          &-text {
+            margin-left: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  &#team {
+    position: relative;
+
+    .section-heading {
+
+      .blue-text {
+        color: $primary-color; 
+      }
+    }
+
+    .team-img {
+      @include desktop {
+        max-width: 650px;
+        margin-left: 15%;
+      }
+
+      padding: 1rem;
+      border-radius: 1rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0px 5px 50px rgba($color: $primary-color, $alpha: .2); 
+      background: #fff;
+      max-width: 650px;
+      margin: auto;
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -8;
+        background: url(https://www.tweakr.io/assets/img/illustrations/ci-shapes/key-0.svg) no-repeat 100%;
+        height: 100%;
+        width: 90%;
+        top: -10%;
+        left: -10%;
+      }
+
+      &.about-img {
+        margin: auto;
+
+        &::before {
+          transform: scale(0);
+        }
+      }
+
+      img {
+        width: 100%;
+        border-radius: 1rem;
+      }
+
+      
+
+      &-text {
+        @include desktop {
+          margin-right: 6rem;
+          margin-top: -15%;
+        }
+
+        position: relative;
+        width: 80%;
+        max-width: 500px;
+        padding: 2rem;
+        border-radius: 1.7rem;
+        top: 80%;
+        //left: 50%;
+        background: #fff;
+        margin: auto;
+        margin-top: -20%;
+        z-index: 15;
+        //transform: translateX(-50%);
+        box-shadow: 10px 10px 20px rgba($color: $text-color, $alpha: .15);
+
+        h2 {
+          margin-bottom: 1rem;
+        }
+
+        p {
+          line-height: 1.5;
+        }
+
+        .team-link {
+          margin-top: 1rem;
+          text-align: right;
+          font-size: 1.4rem;
+          color: $primary-color;
+
+          a {
+            color: $primary-color; 
+          }
+        }
+      }
+    }
+  }
+
+  &#contact {
+
+    .section-heading {
+      margin-top: 0rem;
+    }
+
+    form {
+      @include desktop {
+        width: 100%;
+      }
+      width: 90%;
+      margin: auto;
+
+      .form-creds {
+        @include desktop {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: .7rem;
+        }
+        input {
+          @include desktop {
+            margin: 0;
+          }
+
+          font-family: 'Montserrat', sans-serif;
+          display: block;
+          width: 100%;
+          margin: .7rem 0;
+          padding: .7rem;
+          font-size: 1.2rem;
+          border: 1px solid silver;
+          border-radius: 10px;
+          transition: all .2s;
+
+          &:focus {
+            position: relative;
+            box-shadow: 5px 5px 10px rgba($color: $text-color, $alpha: .2);
+            outline: none;
+          }
+        }
+      }
+      textarea {
+        display: block;
+        width: 100%;
+        margin: .7rem 0;
+        padding: .7rem;
+        font-size: 1.2rem;
+        border: 1px solid silver;
+        border-radius: 10px;
+        transition: all .2s;
+        font-family: 'Montserrat', sans-serif;
+        height: auto;
+        min-height: 200px;
+        resize: none;
+
+        &:focus {
+          position: relative;
+          box-shadow: 5px 5px 10px rgba($color: $text-color, $alpha: .2);
+          outline: none;
+        }
+      }
+      .btn-send {
+        display: block;
+        margin: 1.2rem 0;
+        margin-top: 1.8rem !important;
+        padding: .8rem 3.2rem;
+        margin: auto;
+        border: none;
+        border-radius: 1.6rem;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: lighten($primary-color, 0);
+        transition: all .2s;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba($color: $text-color, $alpha: .2);
+        }
+      }
+    }
+  }
+}
+
+footer {
+  //padding: 3rem 0;
+  background: $final-color;
+  color: #fff;
+  text-align: center;
+
+  .section-heading {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+  .section-text {
+    @include desktop {
+      max-width: 75%;
+    }
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: auto;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    max-width: 90%;
+  }
+
+  .btn {
+    margin: .7 .7rem;
+  }
+
+  .footer-content {
+    @include desktop {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    &-social {
+      @include desktop {
+        text-align: right;
+      }
+
+      margin-top: 2rem;
+
+      a {
+        color: #fff;
+        margin: 0 1rem;
+        font-size: 1.3rem;
+      }
+    }
+
+    &-links {
+      @include desktop {
+        text-align: right;
+      }
+
+      margin: 1.5rem 0;
+
+      a {
+        color: #fff;
+        margin: 0 1rem;
+      }
+    }
+
+    h2 {
+      @include desktop {
+        text-align: left;
+      }
+    }
+
+    p {
+      @include desktop {
+        text-align: left;
+      }
+
+      margin-top: 1.5rem;
+    }
+  }
+}

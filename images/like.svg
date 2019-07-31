@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 112.4 117.6" style="enable-background:new 0 0 112.4 117.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Pfad_757);}
+	.st1{opacity:0.15;fill:#5061F5;enable-background:new    ;}
+	.st2{fill:none;stroke:#F49351;stroke-width:8.735;stroke-linecap:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#5061F5;stroke-width:8.735;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<filter  filterUnits="userSpaceOnUse" height="209.926" id="Pfad_757" width="197.574" x="1.238" y="0">
+	<feOffset  dx="22.677" dy="8.504" input="SourceAlpha"></feOffset>
+	<feGaussianBlur  result="blur" stdDeviation="21.26"></feGaussianBlur>
+	<feFlood  flood-opacity="0.078"></feFlood>
+	<feComposite  in2="blur" operator="in"></feComposite>
+	<feComposite  in="SourceGraphic" operator="over"></feComposite>
+</filter>
+<g id="Gruppe_1252" transform="translate(-904.903 -1512.614)">
+	<g transform="matrix(1, 0, 0, 1, 904.9, 1512.61)" class="st0">
+		<path id="Pfad_757-2_1_" class="st1" d="M98.2,104.4c-10,12.7-37.7,13.9-49.2,2.5C29.1,87.2,59,31,69.5,32.4
+			c3.6,0.5,2.5,7.2,9.8,13.3c12,10,26.4,1.1,31.8,8.9c3.3,4.7-0.6,16.2-8.5,39.1C99.8,102.1,99.1,103.3,98.2,104.4z"/>
+	</g>
+	<g id="Gruppe_1206" transform="translate(-5.087 69.913)">
+		<line id="Linie_15" class="st2" x1="934.3" y1="1496.1" x2="934.3" y2="1530.5"/>
+		<path id="Pfad_760" class="st3" d="M915.8,1496.4c-1.9,16.6-1.9,33.4,0,50h26.8c7.3,0,11.1,3,19.1,7.7c4.1,2.4,10.4,1.8,31,1.8
+			c14.9,0,21-25.3,25-50.1c2.9-18-16.2-16.9-38.7-16.9c-2.5-8.1,3.3-28.2-7.2-37.7c-7.4-6.6-17.7-5.5-16.9,4.8
+			c2.4,29.8-13.9,40.2-13.9,40.2L915.8,1496.4z"/>
+	</g>
+</g>
+</svg>
